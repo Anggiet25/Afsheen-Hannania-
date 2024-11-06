@@ -11,8 +11,7 @@
 <!-- Navbar -->
 <nav class="navbar">
     <div class="container">
-
-
+        
         <!-- Menu di kanan -->
         <ul class="menu">
             <li><a href="#">Home</a></li>
@@ -60,7 +59,6 @@
 </section>
 
 <!-- Modal untuk melihat lebih detail -->
-<!-- Modal untuk melihat lebih detail -->
 <div id="menu1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('menu1')">&times;</span>
@@ -87,6 +85,7 @@
         <p>Deskripsi lengkap tentang makanan 3. Informasi tambahan bisa disertakan di sini.</p>
     </div>
 </div>
+
 
 <!-- Contact Us -->
 <section id="contact" class="contact-us">
@@ -122,7 +121,7 @@
         menu.classList.toggle('aktif');
     });
 
-    // Function untuk membuka modal
+// Function untuk membuka modal
 function openModal(menuId) {
     const modal = document.getElementById(menuId);
     modal.style.display = "block"; // Menampilkan modal
@@ -133,6 +132,7 @@ function closeModal(menuId) {
     const modal = document.getElementById(menuId);
     modal.style.display = "none"; // Menyembunyikan modal
 }
+
 
 </script>
 
