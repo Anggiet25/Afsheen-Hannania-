@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Makanan - Afsheen Hannania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container">
+
+
+        <!-- Menu di kanan -->
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+
+        <!-- Tombol hamburger untuk mobile -->
+        <div class="tombol">
+            &#9776;
+        </div>
+    </div>
+</nav>
+
+<!-- Banner -->
+<section class="banner">
+    <div class="banner-content">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="img/logo.jpg" alt="Logo" class="logo">
+        </div>
+        <!-- Teks -->
+        <h1 class="animated-text">Selamat Datang di Afsheen Hannania</h1>
+        <p class="animated-text">Temukan berbagai menu makanan lezat di sini!</p>
+    </div>
+</section>
+
+<!-- Menu Makanan -->
+<section id="menu" class="menu-makanan">
+    <h2>Menu Makanan</h2>
+    <div class="menu-items">
+        <div class="menu-item" onclick="openModal('menu1')">
+            <img src="img/menu.png" alt="Makanan 1">
+            <h3>Makanan 1</h3>
+        </div>
+        <div class="menu-item" onclick="openModal('menu2')">
+            <img src="img/menu.png" alt="Makanan 2">
+            <h3>Makanan 2</h3>
+        </div>
+        <div class="menu-item" onclick="openModal('menu3')">
+            <img src="img/menu.png" alt="Makanan 3">
+            <h3>Makanan 3</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Modal untuk melihat lebih detail -->
+<!-- Modal untuk melihat lebih detail -->
+<div id="menu1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('menu1')">&times;</span>
+        <h2>Makanan 1</h2>
+        <img src="img/menu.png" alt="Makanan 1">
+        <p>Deskripsi lengkap tentang makanan 1. Informasi tambahan bisa disertakan di sini.</p>
+    </div>
+</div>
+
+<div id="menu2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('menu2')">&times;</span>
+        <h2>Makanan 2</h2>
+        <img src="img/menu.png" alt="Makanan 2">
+        <p>Deskripsi lengkap tentang makanan 2. Informasi tambahan bisa disertakan di sini.</p>
+    </div>
+</div>
+
+<div id="menu3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('menu3')">&times;</span>
+        <h2>Makanan 3</h2>
+        <img src="img/menu.png" alt="Makanan 3">
+        <p>Deskripsi lengkap tentang makanan 3. Informasi tambahan bisa disertakan di sini.</p>
+    </div>
+</div>
+
+<!-- Contact Us -->
+<section id="contact" class="contact-us">
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+        <form onsubmit="sendWhatsApp(event)">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email Anda" required>
+
+            <label for="message">Pesan:</label>
+            <textarea id="response" name="message" placeholder="Pesan Anda" required></textarea>
+
+            <button type="submit">Pesan Sekarang</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2024 Afsheen Hannania. All Rights Reserved.</p>
+</footer>
+
+<script type="text/javascript">
+    // deklarasi tombol dan menu
+    const tombol = document.querySelector('.tombol');
+    const menu = document.querySelector('.menu');
+
+    // membuat event click
+    tombol.addEventListener('click', () => {
+        menu.classList.toggle('aktif');
+    });
+
+    // Function untuk membuka modal
+function openModal(menuId) {
+    const modal = document.getElementById(menuId);
+    modal.style.display = "block"; // Menampilkan modal
+}
+
+// Function untuk menutup modal
+function closeModal(menuId) {
+    const modal = document.getElementById(menuId);
+    modal.style.display = "none"; // Menyembunyikan modal
+}
+
+</script>
+
+<script>
+    function sendWhatsApp(event) {
+        event.preventDefault(); // Mencegah form submit secara default
+
+        // Mengambil nilai dari form
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('response').value;
+
+        // Membuat pesan yang akan dikirim
+        const fullMessage = `Nama: ${name}\nEmail: ${email}\nPesan: ${message}`;
+
+        const phoneNumber = '62895618085469'; // Nomor telepon penerima
+        const encodedMessage = encodeURIComponent(fullMessage); // Mengencode pesan
+        const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`; // Membuat URL WhatsApp
+
+        // Membuka WhatsApp dengan URL yang telah disiapkan
+        window.open(url, '_blank');
+    }
+</script>
+
+</body>
+</html>
