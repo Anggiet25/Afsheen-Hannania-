@@ -1,3 +1,12 @@
+/* Atur body dan html agar tidak ada margin dan padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-family: Arial, sans-serif;
+}
 /* Resetting body */
 body {
     margin: 0;
@@ -5,37 +14,64 @@ body {
     background-color: #d6eff4;
     height: 100%; /* Ensuring full-page layout */
 }
-/* Modal Styling */
+/* Modal Background */
 .modal {
-    display: none; /* Modal tidak terlihat secara default */
+    display: none; /* Tidak tampil secara default */
     position: fixed;
-    z-index: 1;
-    left: 0;
+    z-index: 1000;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
-    overflow: auto;
-    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang transparan */
+    display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
+
+
+/* Modal Content */
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    position: relative; /* Agar tombol close berada di posisi yang tepat */
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    overflow: hidden;
 }
 
+/* Close Button */
+.modal-content .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content .close:hover {
+    color: #ff5757;
+}
+
+/* Image Styling */
 .modal-content img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    max-height: 70vh; /* Membatasi tinggi gambar agar tidak melebihi tinggi layar */
+    object-fit: contain;
+    border-radius: 8px;
+    margin-top: 15px;
 }
+
 
 .close {
     color: #aaa;
@@ -55,6 +91,8 @@ body {
 
 /* Navbar Styling */
 .navbar {
+    width: 100%;
+    box-sizing: border-box;
     background: #212121;
     padding: 20px 30px;
     display: flex;
@@ -150,6 +188,7 @@ body {
 
 /* Banner Section */
 .banner {
+ 
     text-align: center;
     padding: 50px 20px;
     background-color: #f4f4f4;
@@ -164,7 +203,11 @@ body {
 .logo-container {
     margin-bottom: 20px;
 }
-
+/* Kontainer untuk memastikan semua konten mengisi lebar penuh */
+.container {
+    max-width: 100%; /* Maksimalkan lebar untuk full screen */
+    padding: 0 20px; /* Tambahkan padding jika diperlukan */
+}
 .logo {
     max-height: 100px;
     width: auto;
@@ -198,6 +241,11 @@ body {
     }
 }
 
+.menu-makanan, .contact-us, .footer {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
 /* Menu Section */
 .menu-makanan {
     padding: 40px 20px;
@@ -241,58 +289,154 @@ body {
 }
 
 /* Contact Us Section */
+/* Styling Contact Us Section */
 .contact-us {
-    padding: 40px 20px;
-    background-color: #f4f4f4;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
 .contact-us h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #212121;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 700;
 }
 
+/* Styling Contact Box */
 .contact-box {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.contact-box label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .contact-box input,
 .contact-box textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 15px;
+    background-color: #f4f4f4;
+    transition: border-color 0.3s;
 }
 
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: #feb47b;
+    background-color: #fff;
+    outline: none;
+}
+
+.contact-box textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Styling Button */
 .contact-box button {
+    display: inline-block;
     background-color: #212121;
-    color: white;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .contact-box button:hover {
     background-color: #feb47b;
+    transform: translateY(-2px);
 }
+
+.contact-box button:active {
+    transform: translateY(0);
+}
+
 
 /* Footer */
 .footer {
     background-color: #212121;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+/* Teks Copyright */
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Styling Ikon Sosial di Footer */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+.social-icon img:hover {
+    opacity: 0.7; /* Efek hover */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Memisahkan teks ke kiri dan ikon ke kanan */
+}
+
+/* Styling untuk teks copyright */
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Styling untuk ikon Instagram di Footer */
+.footer .instagram-icon img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s;
+}
+
+.footer .instagram-icon img:hover {
+    opacity: 0.7; /* Efek hover untuk ikon Instagram */
 }

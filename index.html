@@ -14,7 +14,7 @@
         
         <!-- Menu di kanan -->
         <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
@@ -42,18 +42,23 @@
 <!-- Menu Makanan -->
 <section id="menu" class="menu-makanan">
     <h2>Menu Makanan</h2>
+    <h3>Klik Gambar dibawah ini untuk melihat detailnya</h3>
     <div class="menu-items">
         <div class="menu-item" onclick="openModal('menu1')">
-            <img src="img/menu.png" alt="Makanan 1">
-            <h3>Makanan 1</h3>
+            <img src="img/menu1.png" alt="Makanan 1">
+            <h3>Menu 1</h3>
         </div>
         <div class="menu-item" onclick="openModal('menu2')">
-            <img src="img/menu.png" alt="Makanan 2">
-            <h3>Makanan 2</h3>
+            <img src="img/menu2.png" alt="Makanan 2">
+            <h3>Menu 2</h3>
         </div>
         <div class="menu-item" onclick="openModal('menu3')">
-            <img src="img/menu.png" alt="Makanan 3">
-            <h3>Makanan 3</h3>
+            <img src="img/menu3.png" alt="Makanan 3">
+            <h3>Menu 3</h3>
+        </div>
+        <div class="menu-item" onclick="openModal('menu4')">
+            <img src="img/menu4.png" alt="Makanan 4">
+            <h3>Menu 4</h3>
         </div>
     </div>
 </section>
@@ -62,29 +67,43 @@
 <div id="menu1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('menu1')">&times;</span>
-        <h2>Makanan 1</h2>
-        <img src="img/menu.png" alt="Makanan 1">
-        <p>Deskripsi lengkap tentang makanan 1. Informasi tambahan bisa disertakan di sini.</p>
+        <h2>Menu 1</h2>
+        <h3>Menu Kimbab</h3>
+        <img src="img/menu1.png" alt="Makanan 1">
+        <p>Segala Jenis Kimbab ada di menu 1.</p>
     </div>
 </div>
+
 
 <div id="menu2" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('menu2')">&times;</span>
-        <h2>Makanan 2</h2>
-        <img src="img/menu.png" alt="Makanan 2">
-        <p>Deskripsi lengkap tentang makanan 2. Informasi tambahan bisa disertakan di sini.</p>
+        <h2>Menu 2</h2>
+        <h3>Menu Nigiri</h3>
+        <img src="img/menu2.png" alt="Makanan 2">
+        <p>Segala Jenis Nigiri</p>
     </div>
 </div>
 
 <div id="menu3" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('menu3')">&times;</span>
-        <h2>Makanan 3</h2>
-        <img src="img/menu.png" alt="Makanan 3">
-        <p>Deskripsi lengkap tentang makanan 3. Informasi tambahan bisa disertakan di sini.</p>
+        <h2>Menu 3</h2>
+        <h3>Menu Nigiri dan gunkan</h3>
+        <img src="img/menu3.png" alt="Makanan 3">
+        <p>Nigiri dan Gunkan</p>
     </div>
 </div>
+<div id="menu4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('menu4')">&times;</span>
+        <h2>Menu 4</h2>
+        <h3>Menu Nigiri dan gunkan</h3>
+        <img src="img/menu4.png" alt="Makanan 4">
+        <p>Nigiri dan Gunkan</p>
+    </div>
+</div>
+
 
 
 <!-- Contact Us -->
@@ -108,8 +127,21 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <p>&copy; 2024 Afsheen Hannania. All Rights Reserved.</p>
+    <div class="footer-content">
+        <p>&copy; 2024 Afsheen Hannania. All Rights Reserved.</p>
+        
+        <!-- Ikon Sosial -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/username" target="_blank" class="social-icon">
+                <img src="img/instagram.png" alt="Instagram" width="24">
+            </a>
+            <a href="https://wa.me/6289630221219" target="_blank" class="social-icon">
+                <img src="img/whatsapp.png" alt="WhatsApp" width="24">
+            </a>
+        </div>
+    </div>
 </footer>
+
 
 <script type="text/javascript">
     // deklarasi tombol dan menu
@@ -131,8 +163,16 @@ function openModal(menuId) {
 function closeModal(menuId) {
     const modal = document.getElementById(menuId);
     modal.style.display = "none"; // Menyembunyikan modal
+    
 }
-
+ // Pastikan modal tetap tertutup saat halaman pertama kali dimuat
+ document.addEventListener("DOMContentLoaded", function () {
+        // Memastikan semua modal tersembunyi saat halaman dimuat
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.style.display = "none";
+        });
+    });
 
 </script>
 
